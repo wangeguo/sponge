@@ -8,6 +8,7 @@
 #include "sponge/net/channel/channel-handler-context.h"
 #include "sponge/net/channel/channel-pipeline.h"
 #include "sponge/net/channel/message-event.h"
+#include "sponge/net/channel/simple-channel-upstream-handler.h"
 
 using namespace sponge::net::bootstrap;
 using namespace sponge::net::channel;

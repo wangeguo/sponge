@@ -14,8 +14,11 @@ class Channel;
 class ChannelHandler;
 class ChannelPipeline;
 
+// Creates a new ChannelPipeline for a new Channel.
 class ChannelPipelineFactory {
-    
+  public:
+    // Returns a newly created ChannelPipeline.
+    virtual ChannelPipeline GetPipeline() = 0;
 };
 
 } } } // namespace sponge::net::channel

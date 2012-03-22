@@ -30,6 +30,8 @@ class ChannelPipelineFactory;
 // connectionless (e.g. UDP) channel initialization respectively.
 class Bootstrap /* : ExternalResourceReleasable */ {
   public:
+    virtual ~Bootstrap();
+
     // Returns the ChannelFactory that will be used to perform an I/O operation.
     ChannelFactory GetFactory();
 

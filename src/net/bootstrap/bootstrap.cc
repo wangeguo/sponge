@@ -8,6 +8,9 @@ namespace sponge {
 namespace net {
 namespace bootstrap {
 
+Bootstrap::~Bootstrap() {
+}
+
 ChannelFactory Bootstrap::GetFactory() {
     ChannelFactory factory = factory_;
     return factory;
