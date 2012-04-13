@@ -13,19 +13,19 @@ class EchoClientHandler : SimpleChannelUpstreamHandler {
             first_message_.WriteByte(i);
         }
     }
-
+    
     void ChannelConnected(
         const ChannelHandlerContext &ctx, const ChannelStateEvent &e) {
         e.GetChannel().Write(first_message_);
     }
-
+    
     void MessageReceived(
         const ChannelHandlerContext &ctx, const MessageEvent &e) {
         transferred_byres_.AddAndGet(
             ((ChannelBuffer) e.GetMessage()).ReadableBytes());
         e.GetChannel().Write(e.GetMessage());
     }
-
+	
   private:
     ChannelBuffer first_message_;
     AtomicLong transferred_bytes_;

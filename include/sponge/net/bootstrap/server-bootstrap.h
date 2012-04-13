@@ -11,8 +11,8 @@ namespace bootstrap {
 
 // Forward declarations.
 class Bootstrap;
-class ChannelFactory;
-class ChannelHandler;
+using namespace sponge::net::channel::ChannelFactory;
+using namespace sponge::net::channel::ChannelHandler;
 
 // A helper class which creates a new server-side Channel and accepts
 // incoming connections.** Only for connection oriented transports**

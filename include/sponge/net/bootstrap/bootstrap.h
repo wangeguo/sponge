@@ -16,11 +16,10 @@ namespace net {
 namespace bootstrap {
 
 // Forward declarations.
-using namespace sponge::net::channel;
-class Channels;
-class ChannelFactory;
-class ChannelPipeline;
-class ChannelPipelineFactory;
+using namespace sponge::net::channel::Channels;
+using namespace sponge::net::channel::ChannelFactory;
+using namespace sponge::net::channel::ChannelPipeline;
+using namespace sponge::net::channel::ChannelPipelineFactory;
 
 // A helper class which initializes a Channel. This class provides the
 // common data structure for its subclasses which actually initialize
@@ -38,7 +37,7 @@ class Bootstrap /* : ExternalResourceReleasable */ {
     // Sets the ChannelFactory that will be used to perform an I/O
     // operation. This method can be called only once and can't be
     // called at all if the factory was specified in the constructor.
-    void SetFactory(const ChannelFactory &factory);
+    void SetFactory(const ChannelFactory *factory);
 
     // Returns the default ChannelPipeline which is cloned when a new
     // Channel is created.
@@ -46,7 +45,7 @@ class Bootstrap /* : ExternalResourceReleasable */ {
 
     // Sets the default ChannelPipeline which is cloned when a new
     // Channel is created.
-    void SetPipeline(const ChannelPipeline &pipeline);
+    void SetPipeline(const ChannelPipeline *pipeline);
 
     // Dependency injection friendly convenience method for
     // getPipeline() which returns the default pipeline of this
@@ -56,20 +55,20 @@ class Bootstrap /* : ExternalResourceReleasable */ {
     void SetPipelineAsMap(std::map<std::string, ChannelHandler> pipeline_map);
     inline ChannelPipelineFactory GetPipelineFactory() { return pipeline_factory_; }
 
-    inline void SetPipelineFactory(const ChannelPipelineFactory &pipeline_factory) {
+    inline void SetPipelineFactory(const ChannelPipelineFactory *pipeline_factory) {
         pipeline_ = NULL;
         pipeline_factory_ = pipeline_factory;
     }
-    inline std::map< std::string, void* > GetOptions() { return options_; }
-    inline void SetOptions(std::map<std::string, void*> options) {
+    inline std::map<std::string, void* > GetOptions() { return options_; }
+    inline void SetOptions(std::map<std::string, void* > options) {
         options_ = options;
     }
-    inline void* GetOption(std::string key) { return options.get(key); }
+    inline void* GetOption(std::string key) { return options_.find(key)->second; }
     inline void SetOption(std::string key, void* value) {
         if (value == NULL)
-            options.remove(key);
+            options_.erase(key);
         else
-            options.put(key, value);
+            options_.insert(std::pair<std::string, void*>(key, value));
     }
 
   protected:
@@ -78,7 +77,7 @@ class Bootstrap /* : ExternalResourceReleasable */ {
                   pipeline_factory_(Channels::PipelineFactory(pipeline_)) {}
 
     // Creates a new instance with the specified initial ChannelFactory.
-    inline Bootstrap(const ChannelFactory &channel_factory) {
+    inline Bootstrap(const ChannelFactory *channel_factory) {
         SetFactory(channel_factory);
     }
 
