@@ -19,7 +19,7 @@ class DefaultServerSocketChannelConfig
           public ServerSocketChannelConfig {
   public:
     DefaultServerSocketChannelConfig(const ServerSocket &socket)
-            : _socket(socket) {}
+            : _kSocket(socket) {}
     
     bool SetOption(const std::string &key, void* value);
     bool IsReuseAddress();
@@ -29,14 +29,14 @@ class DefaultServerSocketChannelConfig
 
     inline void SetPerformancePreference(
         int connection_time, int latency, int bandwidth) {
-        _socket.SetPerformancePreference(connction_time, latency, bandwidth);
+        _kSocket.SetPerformancePreference(connction_time, latency, bandwidth);
     }
 
     inline int GetBacklog() { return _backlog; }
     void void SetBacklog(int backlog) { _backlog = backlog; }
 
   private:
-    const ServerSocket _socket;
+    const ServerSocket _kSocket;
     volatile int _backlog;
 };
     

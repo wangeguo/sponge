@@ -14,7 +14,7 @@ namespace socket {
 class DefaultSocketChannelConfig
         : public DefaultChannelConfig, public SocketChannelConfig {
   public:
-    DefaultSocketChannelConfig(const Socket &socket) : _socket(socket) {}
+    DefaultSocketChannelConfig(const Socket &socket) : _kSocket(socket) {}
 
     bool SetOption(const std::string &key, void* value);
     int  GetReceiveBufferSize();
@@ -24,11 +24,11 @@ class DefaultSocketChannelConfig
     bool IsKeepAlive();
     bool IsReuseAddress();
     bool IsTcpNoDelay();
-    void SetKeepAlive(bool keepAlive);
+    void SetKeepAlive(bool keep_alive);
 
     inline void SetPerformancePreferences(
         int connection_time, int latency, int bandwidth) {
-        _socket.SetPerformancePreferences(connection_time, latency, bandwidth);
+        _kSocket.SetPerformancePreferences(connection_time, latency, bandwidth);
     }
 
     void SetReceiveBufferSize(int receive_buffer_size);
@@ -36,10 +36,10 @@ class DefaultSocketChannelConfig
     void SetSendBufferSize(int send_buffer_size);
     void SetSoLinger(int so_linger);
     void SetTcpNoDelay(bool tcp_no_delay);
-    void SetTrafficClass(int traffic_class); 
+    void SetTrafficClass(int traffic_class);
 
   private:
-    const Socket _socket;
+    const Socket _kSocket;
 };
 
 } } } } // namespace sponge::net::channel::socket
