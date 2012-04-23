@@ -36,7 +36,7 @@ bool DefaultSocketChannelConfig::SetOption(const std::string &key, void* value) 
 
 int DefaultSocketChannelConfig::GetReceiveBuffeSize() {
     try {
-        return _kSocket.GetReceiveBufferSize();
+        return kSocket_.GetReceiveBufferSize();
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -44,7 +44,7 @@ int DefaultSocketChannelConfig::GetReceiveBuffeSize() {
 
 int DefaultSocketChannelConfig::GetSendBufferSize() {
     try {
-        return _kSocket.GetSendBufferSize();
+        return kSocket_.GetSendBufferSize();
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -52,7 +52,7 @@ int DefaultSocketChannelConfig::GetSendBufferSize() {
 
 int DefaultSocketChannelConfig::GetSoLinger() {
     try {
-        return _kSocket.GetSoLinger();
+        return kSocket_.GetSoLinger();
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -60,7 +60,7 @@ int DefaultSocketChannelConfig::GetSoLinger() {
 
 int DefaultSocketChannelConfig::GetTrafficClass() {
     try {
-        return _kSocket.GetTrafficClass();
+        return kSocket_.GetTrafficClass();
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -68,7 +68,7 @@ int DefaultSocketChannelConfig::GetTrafficClass() {
 
 bool DefaultSocketChannelConfig::IsKeepAlive() {
     try {
-        return _kSocket.GetKeepAlive();
+        return kSocket_.GetKeepAlive();
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -76,7 +76,7 @@ bool DefaultSocketChannelConfig::IsKeepAlive() {
 
 bool DefaultSocketChannelConfig::IsReuseAddress() {
     try {
-        return _kSocket.GetReuseAddress();
+        return kSocket_.GetReuseAddress();
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -84,7 +84,7 @@ bool DefaultSocketChannelConfig::IsReuseAddress() {
 
 bool DefaultSocketChannelConfig::IsTcpNoDelay() {
     try {
-        return _kSocket.GetTcpNoDelay();
+        return kSocket_.GetTcpNoDelay();
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -92,7 +92,7 @@ bool DefaultSocketChannelConfig::IsTcpNoDelay() {
 
 void DefaultSocketChannelConfig::SetKeepAlive(bool keep_alive) {
     try {
-        _kSocket.SetKeepAlive(keep_alive);
+        kSocket_.SetKeepAlive(keep_alive);
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -100,7 +100,7 @@ void DefaultSocketChannelConfig::SetKeepAlive(bool keep_alive) {
 
 void DefaultSocketChannelConfig::SetReceiveBufferSize(int receive_buffer_size) {
     try {
-        _kSocket.SetReceiveBufferSize(receive_buffer_size);
+        kSocket_.SetReceiveBufferSize(receive_buffer_size);
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -108,7 +108,7 @@ void DefaultSocketChannelConfig::SetReceiveBufferSize(int receive_buffer_size) {
 
 void DefaultSocketChannelConfig::SetReuseAddress(bool reuse_address) {
     try {
-        _kSocket.SetReuseAddress(reuse_address);
+        kSocket_.SetReuseAddress(reuse_address);
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -116,7 +116,7 @@ void DefaultSocketChannelConfig::SetReuseAddress(bool reuse_address) {
 
 void DefaultSocketChannelConfig::SetSendBufferSize(int send_buffer_size) {
     try {
-        _kSocket.SetSendBufferSize(send_buffer_size);
+        kSocket_.SetSendBufferSize(send_buffer_size);
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -125,9 +125,9 @@ void DefaultSocketChannelConfig::SetSendBufferSize(int send_buffer_size) {
 void DefaultSocketChannelConfig::SetSoLinger(int so_linger) {
     try {
         if (so_linger < 0) {
-            _kSocket.SetSoLinger(false, 0);
+            kSocket_.SetSoLinger(false, 0);
         } else {
-            _kSocket.SetSoLinger(true, so_linger);
+            kSocket_.SetSoLinger(true, so_linger);
         }
     } catch (SocketException e) {
         throw new ChannelException(e);
@@ -136,7 +136,7 @@ void DefaultSocketChannelConfig::SetSoLinger(int so_linger) {
 
 void DefaultSocketChannelConfig::SetTcpNoDelay(bool tcp_no_delay) {
     try {
-        _kSocket.SetTcpNoDelay(tcp_no_delay);
+        kSocket_.SetTcpNoDelay(tcp_no_delay);
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -144,7 +144,7 @@ void DefaultSocketChannelConfig::SetTcpNoDelay(bool tcp_no_delay) {
 
 void DefaultSocketChannelConfig::SetTrafficClass(int traffic_class) {
     try {
-        _kSocket.SetTrafficClass(traffic_class);
+        kSocket_.SetTrafficClass(traffic_class);
     } catch (SocketException e) {
         throw new ChannelException(e);
     }

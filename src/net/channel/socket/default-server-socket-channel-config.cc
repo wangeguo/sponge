@@ -28,7 +28,7 @@ bool DefaultServerSocketChannelConfig::SetOption(const std::string &key, void* v
 
 bool DefaultServerSocketChannelConfig::IsReuseAddress() {
     try {
-        return _kSocket.GetReuseAddress();
+        return kSocket_.GetReuseAddress();
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -36,7 +36,7 @@ bool DefaultServerSocketChannelConfig::IsReuseAddress() {
 
 void DefaultServerSocketChannelConfig::SetReuseAddress(bool reuse_address) {
     try {
-        _kSocket.SetReuseAddress(reuse_address);
+        kSocket_.SetReuseAddress(reuse_address);
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -44,7 +44,7 @@ void DefaultServerSocketChannelConfig::SetReuseAddress(bool reuse_address) {
 
 int  DefaultServerSocketChannelConfig::GetReceiveBufferSize() {
     try {
-        return _kSocket.GetReceiveBufferSize();
+        return kSocket_.GetReceiveBufferSize();
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -52,7 +52,7 @@ int  DefaultServerSocketChannelConfig::GetReceiveBufferSize() {
 
 void DefaultServerSocketChannelConfig::SetReceiveBufferSize(int receive_buffer_size) {
     try {
-        _kSocket.SetReceiveBufferSize(receive_buffer_size);
+        kSocket_.SetReceiveBufferSize(receive_buffer_size);
     } catch (SocketException e) {
         throw new ChannelException(e);
     }

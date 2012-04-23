@@ -9,8 +9,8 @@ namespace net {
 namespace channel {
 namespace socket {
 
-// Init _kDefaultPredictorFactory
-DefaultDatagramChannelConfig::_kDefaultPredictorFactory(
+// Init kDefaultPredictorFactory_
+DefaultDatagramChannelConfig::kDefaultPredictorFactory_(
     FixedReceiveBufferSizePredictorFactory(768));
 
 bool DefaultDatagramChannelConfig::SetOption(
@@ -50,7 +50,7 @@ bool DefaultDatagramChannelConfig::SetOption(
 }
 bool DefaultDatagramChannelConfig::IsBroadcast() {
     try {
-        return _kSocket.GetBroadcast();
+        return kSocket_.GetBroadcast();
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -58,16 +58,16 @@ bool DefaultDatagramChannelConfig::IsBroadcast() {
 
 void DefaultDatagramChannelConfig::SetBroadcast(bool broadcast) {
     try {
-        _kSocket.SetBroadcast(broadcast);
+        kSocket_.SetBroadcast(broadcast);
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
 }
 
 std::string DefaultDatagramChannelConfig::GetInterface() {
-    if (typeid(_kSocket) == typeid(MulticastSocket)) {
+    if (typeid(kSocket_) == typeid(MulticastSocket)) {
         try {
-            (static_cast<MulticastSocket>(_kSocket)).GetInterface();
+            (static_cast<MulticastSocket>(kSocket_)).GetInterface();
         } catch (IOException e) {
             throw new ChannelException(e);
         }
@@ -78,9 +78,9 @@ std::string DefaultDatagramChannelConfig::GetInterface() {
 
 void DefaultDatagramChannelConfig::SetInterface(
     const std::string &interface_address) {
-    if (typeid(_kSocket) == typeid(MulticastSocket)) {
+    if (typeid(kSocket_) == typeid(MulticastSocket)) {
         try {
-            (static_cast<MulticastSocket>(_kSocket)).SetInterface(interface_address);
+            (static_cast<MulticastSocket>(kSocket_)).SetInterface(interface_address);
         } catch (IOException e) {
             throw new ChannelException(e);
         }
@@ -90,9 +90,9 @@ void DefaultDatagramChannelConfig::SetInterface(
 }
 
 bool DefaultDatagramChannelConfig::IsLoopbackModeDisabled() {
-    if (typeid(_kSocket) == typeid(MulticastSocket)) {
+    if (typeid(kSocket_) == typeid(MulticastSocket)) {
         try {
-            (static_cast<MulticastSocket>(_kSocket)).GetLoopbackMode();
+            (static_cast<MulticastSocket>(kSocket_)).GetLoopbackMode();
         } catch (IOException e) {
             throw new ChannelException(e);
         }
@@ -103,9 +103,9 @@ bool DefaultDatagramChannelConfig::IsLoopbackModeDisabled() {
 
 void DefaultDatagramChannelConfig::SetLoopbackModeDisabled(
     bool loopback_mode_disabled) {
-    if (typeid(_kSocket) == typeid(MulticastSocket)) {
+    if (typeid(kSocket_) == typeid(MulticastSocket)) {
         try {
-            (static_cast<MulticastSocket>(_kSocket)).SetLoopbackModeDisabled(
+            (static_cast<MulticastSocket>(kSocket_)).SetLoopbackModeDisabled(
                 loopback_mode_disabled);
         } catch (IOException e) {
             throw new ChannelException(e);
@@ -116,9 +116,9 @@ void DefaultDatagramChannelConfig::SetLoopbackModeDisabled(
 }
 
 std::string DefaultDatagramChannelConfig::GetNetworkInterface() {
-    if (typeid(_kSocket) == typeid(MulticastSocket)) {
+    if (typeid(kSocket_) == typeid(MulticastSocket)) {
         try {
-            (static_cast<MulticastSocket>(_kSocket)).GetNetworkInterface();
+            (static_cast<MulticastSocket>(kSocket_)).GetNetworkInterface();
         } catch (IOException e) {
             throw new ChannelException(e);
         }
@@ -129,9 +129,9 @@ std::string DefaultDatagramChannelConfig::GetNetworkInterface() {
 
 void DefaultDatagramChannelConfig::SetNetworkInterface(
     const std::string &network_interface) {
-    if (typeid(_kSocket) == typeid(MulticastSocket)) {
+    if (typeid(kSocket_) == typeid(MulticastSocket)) {
         try {
-            (static_cast<MulticastSocket>(_kSocket)).SetNetworkInterface(network_interface);
+            (static_cast<MulticastSocket>(kSocket_)).SetNetworkInterface(network_interface);
         } catch (IOException e) {
             throw new ChannelException(e);
         }
@@ -142,7 +142,7 @@ void DefaultDatagramChannelConfig::SetNetworkInterface(
 
 bool DefaultDatagramChannelConfig::IsReuseAddress() {
     try {
-        return _kSocket.GetReuseAddress();
+        return kSocket_.GetReuseAddress();
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -150,7 +150,7 @@ bool DefaultDatagramChannelConfig::IsReuseAddress() {
 
 void DefaultDatagramChannelConfig::SetReuseAddress(bool reuse_address) {
     try {
-        _kSocket.SetReuseAddress(reuse_address);
+        kSocket_.SetReuseAddress(reuse_address);
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -158,7 +158,7 @@ void DefaultDatagramChannelConfig::SetReuseAddress(bool reuse_address) {
 
 int  DefaultDatagramChannelConfig::GetReceiveBufferSize() {
     try {
-        return _kSocket.GetReceiveBufferSize();
+        return kSocket_.GetReceiveBufferSize();
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -167,7 +167,7 @@ int  DefaultDatagramChannelConfig::GetReceiveBufferSize() {
 void DefaultDatagramChannelConfig::SetReceiveBufferSize(
     int receive_buffer_size) {
     try {
-        _kSocket.SetReceiveBufferSize(receive_buffer_size);
+        kSocket_.SetReceiveBufferSize(receive_buffer_size);
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -175,7 +175,7 @@ void DefaultDatagramChannelConfig::SetReceiveBufferSize(
 
 int  DefaultDatagramChannelConfig::GetSendBufferSize() {
     try {
-        return _kSocket.GetSendBufferSize();
+        return kSocket_.GetSendBufferSize();
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -183,16 +183,16 @@ int  DefaultDatagramChannelConfig::GetSendBufferSize() {
 
 void DefaultDatagramChannelConfig::SetSendBufferSize(int send_buffer_size) {
     try {
-        _kSocket.SetSendBufferSize(send_buffer_size);
+        kSocket_.SetSendBufferSize(send_buffer_size);
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
 }
 
 int  DefaultDatagramChannelConfig::GetTimeToLive() {
-    if (typeid(_kSocket) == typeid(MulticastSocket)) {
+    if (typeid(kSocket_) == typeid(MulticastSocket)) {
         try {
-            (static_cast<MulticastSocket>(_kSocket)).GetTimeToLive();
+            (static_cast<MulticastSocket>(kSocket_)).GetTimeToLive();
         } catch (IOException e) {
             throw new ChannelException(e);
         }
@@ -202,9 +202,9 @@ int  DefaultDatagramChannelConfig::GetTimeToLive() {
 }
 
 void DefaultDatagramChannelConfig::SetTimeToLove(int ttl) {
-    if (typeid(_kSocket) == typeid(MulticastSocket)) {
+    if (typeid(kSocket_) == typeid(MulticastSocket)) {
         try {
-            (static_cast<MulticastSocket>(_kSocket)).SetTimeToLive(ttl);
+            (static_cast<MulticastSocket>(kSocket_)).SetTimeToLive(ttl);
         } catch (IOException e) {
             throw new ChannelException(e);
         }
@@ -215,7 +215,7 @@ void DefaultDatagramChannelConfig::SetTimeToLove(int ttl) {
 
 int  DefaultDatagramChannelConfig::GetTrafficClass() {
     try {
-        return _kSocket.GetTrafficClass();
+        return kSocket_.GetTrafficClass();
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -223,7 +223,7 @@ int  DefaultDatagramChannelConfig::GetTrafficClass() {
 
 void DefaultDatagramChannelConfig::SetTrafficClass(int traffic_class) {
     try {
-        _kSocket.SetTrafficClass(traffic_class);
+        kSocket_.SetTrafficClass(traffic_class);
     } catch (SocketException e) {
         throw new ChannelException(e);
     }
@@ -231,10 +231,10 @@ void DefaultDatagramChannelConfig::SetTrafficClass(int traffic_class) {
 
 ReceiveBufferSizePredictor
 DefaultDatagramChannelConfig::GetReceiveBufferSizePredictor() {
-    ReceiveBufferSizePredictor predictor(_predictor);
+    ReceiveBufferSizePredictor predictor(predictor_);
     if (predictor == NULL) {
         try {
-            _predictor = predictor = GetReceiveBufferSizePredictorFactory().GetPredictor();
+            predictor_ = predictor = GetReceiveBufferSizePredictorFactory().GetPredictor();
         } catch (Exception e) {
             throw new ChannelException(
                 "Failed to create a new ReceiveBufferSizePredictor", e);
@@ -248,7 +248,7 @@ void DefaultDatagramChannelConfig::setReceiveBufferSizePredictor(
     if (predictor == NULL) {
         throw new NullPointerException("predictor");
     }
-    _predictor = predictor;
+    predictor_ = predictor;
 }
 
 void DefaultDatagramChannelConfig::SetReceiveBufferSizePredictorFactory(
@@ -256,7 +256,7 @@ void DefaultDatagramChannelConfig::SetReceiveBufferSizePredictorFactory(
     if (predictor_factory == NULL) {
         throw new NullPointerException("predictor_factory");
     }
-    _predictor_factory = predictor_factory;
+    predictor_factory_ = predictor_factory;
 }
 
 

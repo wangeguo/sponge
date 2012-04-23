@@ -15,7 +15,7 @@ class DefaultDatagramChannelConfig
         : public DefaultChannelConfig, public DatagramChannelConfig {
   public:
     DefaultDatagramChannelConfig(const DatagramSocket &socket)
-            : _kSocket(socket), _predictor_factory(_kDefaultPredictorFactory) {}
+            : kSocket_(socket), predictor_factory_(kDefaultPredictorFactory_) {}
 
     bool SetOption(const std::string &key, void* value);
     bool IsBroadcast();
@@ -42,17 +42,17 @@ class DefaultDatagramChannelConfig
 
     inline ReceiveBufferSizePredictorFactory
     GetReceiveBufferSizePredictorFactory() {
-        return _predictor_factory;
+        return predictor_factory_;
     }
 
     void SetReceiveBufferSizePredictorFactory(
         const ReceiveBufferSizePredictorFactory &predictor_factory);
 
   private:
-    static const ReceiveBufferSizePredictorFactory _kDefaultPredictorFactory;
-    const DatagramSocket _kSocket;
-    volatile ReceiveBufferSizePredictor _predictor;
-    volatile ReceiveBufferSizePredictorFactory _predictor_factory;
+    static const ReceiveBufferSizePredictorFactory kDefaultPredictorFactory_;
+    const DatagramSocket kSocket_;
+    volatile ReceiveBufferSizePredictor predictor_;
+    volatile ReceiveBufferSizePredictorFactory predictor_factory_;
 }
 
 

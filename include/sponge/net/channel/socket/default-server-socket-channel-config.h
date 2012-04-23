@@ -19,7 +19,7 @@ class DefaultServerSocketChannelConfig
           public ServerSocketChannelConfig {
   public:
     DefaultServerSocketChannelConfig(const ServerSocket &socket)
-            : _kSocket(socket) {}
+            : kSocket_(socket) {}
     
     bool SetOption(const std::string &key, void* value);
     bool IsReuseAddress();
@@ -29,15 +29,15 @@ class DefaultServerSocketChannelConfig
 
     inline void SetPerformancePreference(
         int connection_time, int latency, int bandwidth) {
-        _kSocket.SetPerformancePreference(connction_time, latency, bandwidth);
+        kSocket_.SetPerformancePreference(connction_time, latency, bandwidth);
     }
 
-    inline int GetBacklog() { return _backlog; }
-    void void SetBacklog(int backlog) { _backlog = backlog; }
+    inline int GetBacklog() { return backlog_; }
+    void void SetBacklog(int backlog) { backlog_ = backlog; }
 
   private:
-    const ServerSocket _kSocket;
-    volatile int _backlog;
+    const ServerSocket kSocket_;
+    volatile int backlog_;
 };
     
 } } } } // namespace sponge::net::channel::socket

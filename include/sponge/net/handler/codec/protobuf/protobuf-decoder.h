@@ -29,8 +29,8 @@ class ProtobufDecoder : public OneToOneDecoder {
                  const Channel *channel, void* msg);
 
   private:
-    const MessageLite _KPrototype;
-    const ExtensionRegistry _kEntensionRegistry;
+    const MessageLite KPrototype_;
+    const ExtensionRegistry kEntensionRegistry_;
 };
 
 } } } } } // namespace sponge::net::handler::codec::protobuf
