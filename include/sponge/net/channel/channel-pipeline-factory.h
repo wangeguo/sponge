@@ -18,7 +18,7 @@ class ChannelPipeline;
 class ChannelPipelineFactory {
   public:
     // Returns a newly created ChannelPipeline.
-    virtual ChannelPipeline GetPipeline() = 0;
+    virtual ChannelPipeline* GetPipeline() = 0;
 };
 
 } } } // namespace sponge::net::channel

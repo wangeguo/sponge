@@ -19,7 +19,7 @@ class ChannelFuture;
 class ChannelEvent {
   public:
     // Returns the Channel which is associated with this event.
-    virtual *Channel GetChannel() = 0;
+    virtual Channel* GetChannel() = 0;
 
     // Returns the ChannelFuture which is associated with this
     // event. If this event is an upstream event, this method will

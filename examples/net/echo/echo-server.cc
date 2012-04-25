@@ -2,13 +2,7 @@
 // Use of this source code is governed by a MIT-style license that can
 // be found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#include "sponge/net/bootstrap/bootstrap.h"
-#include "sponge/net/bootstrap/server-bootstrap.h"
-#include "sponge/net/channel/channel-event.h"
-#include "sponge/net/channel/channel-handler-context.h"
-#include "sponge/net/channel/channel-pipeline.h"
-#include "sponge/net/channel/message-event.h"
-#include "sponge/net/channel/simple-channel-upstream-handler.h"
+#include "sponge/sponge.h"
 
 using namespace sponge::net::bootstrap;
 using namespace sponge::net::channel;

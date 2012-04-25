@@ -5,12 +5,13 @@
 #ifndef SPONGE_NET_CHANNEL_SERVER_CHANNEL_FACTORY_H_
 #define SPONGE_NET_CHANNEL_SERVER_CHANNEL_FACTORY_H_
 
+#include "sponge/net/channel/channel-factory.h"
+
 namespace sponge {
 namespace net {
 namespace channel {
 
 // Forward declarations.
-class ChannelFactory;
 class ChannelPipeline;
 class ServerChannel;
 

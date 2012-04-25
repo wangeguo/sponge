@@ -7,12 +7,18 @@
 
 namespace sponge {
 namespace net {
+
+namespace channel {
+// Forward declarations
+class Channel;
+class ChannelFactory;
+class ChannelHandler;
+} // namespace channel
+
 namespace bootstrap {
 
 // Forward declarations.
 class Bootstrap;
-using namespace sponge::net::channel::ChannelFactory;
-using namespace sponge::net::channel::ChannelHandler;
 
 // A helper class which creates a new server-side Channel and accepts
 // incoming connections.** Only for connection oriented transports**
@@ -22,7 +28,7 @@ using namespace sponge::net::channel::ChannelHandler;
 // using a connectionless transport such as UDP/IP which does not
 // accept an incoming connection but receives messages by itself
 // without creating a child channel.
-class ServerBootstrap : Bootstrap {
+class ServerBootstrap : public Bootstrap {
   private:
     class Binder;    // Foward decelrations
     
@@ -31,29 +37,29 @@ class ServerBootstrap : Bootstrap {
     // ServerBootstrap() : Bootstrap() {}
 
     // Create a new instance with the specified inital ChannelFactory.
-    ServerBootstrap(const ChannelFactory *channel_factory)
+    ServerBootstrap(const channel::ChannelFactory *channel_factory)
             : Bootstrap(channel_factory) {}
-    inline void SetFactory(const ChannelFactory *factory) {
+    inline void SetFactory(const channel::ChannelFactory *factory) {
         Bootstrap::SetFactory(factory);
     }
-    inline ChannelHandler GetParentHandler() { return parent_handler_; }
-    inline void SetParentHandler(const ChannelHandler &parent_handler) {
+    inline channel::ChannelHandler* GetParentHandler() { return parent_handler_; }
+    inline void SetParentHandler(const channel::ChannelHandler *parent_handler) {
         parent_handler_ = parent_handler;
     }
     
     //  Creates a new channel which is bound to the local address
     //  which was specified in the current "localAddress" option.
-    inline Channel Bind() {
+    inline channel::Channel* Bind() {
         std::string local_address = (std::string) GetOption("local_address");
         if (!local_address.empty())
             return Bind(local_address);
     }
-    Channel Bind(const std::string &local_address);
+    channel::Channel* Bind(const std::string &local_address);
     void Bind(int port);
     
   private:
-        volatile ChannelHandler parent_handler_;
-    };
+    volatile channel::ChannelHandler* parent_handler_;
+};
 
 } } } // namespace sponge::net::bootstrap
 

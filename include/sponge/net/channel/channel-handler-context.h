@@ -23,7 +23,7 @@ class ChannelHandlerContext {
   public:
     // Returns the Channel that the ChannelPipeline belongs to. This
     // method is a shortcut to getPipeline().getChannel().
-    virtual Channel GetChannel() = 0;
+    virtual Channel* GetChannel() = 0;
 
     // Returns the ChannelPipeline that the ChannelHandler belongs to.
     virtual const ChannelPipeline* GetPipeline() const = 0;
@@ -45,12 +45,12 @@ class ChannelHandlerContext {
     // Sends the specified ChannelEvent to the ChannelUpstreamHandler
     // which is placed in the closest upstream from the handler
     // associated with this context.
-    virtual void SendUpstream() = 0;
+    virtual void SendUpstream(const ChannelEvent *e) = 0;
 
     // Sends the specified ChannelEvent to the
     // ChannelDownstreamHandler which is placed in the closest
     // downstream from the handler associated with this context.
-    virtual void SendDownstream() = 0;
+    virtual void SendDownstream(const ChannelEvent *e) = 0;
 
     // Retrieves an object which is attached to this context.
     virtual void* GetAttachment() = 0;

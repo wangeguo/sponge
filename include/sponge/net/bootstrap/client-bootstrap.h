@@ -9,6 +9,13 @@
 
 namespace sponge {
 namespace net {
+
+namespace channel {
+//Forward declarations
+class ChannelFactory;
+class ChannelFuture;
+} // namespace channel
+
 namespace bootstrap {
 
 // Forward declarations.
@@ -19,27 +26,27 @@ class Bootstrap;
 class ClientBootstrap : public Bootstrap {
   public:
     // Creates a new instance with the specified initial ChannelFactory.
-    ClientBootstrap(const ChannelFactory *channel_factory)
+    ClientBootstrap(const channel::ChannelFactory *channel_factory)
             : Bootstrap(channel_factory) {}
 
     // Attempts a new connection with the current "remote_address" and
     // "local_address" option.
-    inline ChannelFuture Connect() {
-        std::string remote_address = (std::string) GetOPtion("remote_address");
+    inline channel::ChannelFuture* Connect() {
+        std::string remote_address = static_cast<std::string>(GetOption("remote_address"));
         if (!remote_address.empty())
             return Connect(remote_address);
     }
 
     // Attempts a new connection with the specified remote_address and
     // the current "local_address" option.
-    inline ChannelFuture Connect(const std::string &remote_address) {
-        std::string local_address = (std::string) GetOption("local_address");
+    inline channel::ChannelFuture* Connect(const std::string &remote_address) {
+        std::string local_address = static_cast<std::string>(GetOption("local_address"));
         return Connect(remote_address, local_address);
     }
 
     // Attempts a new connection with the specified remote_address and
     // the specified local_address.
-    ChannelFuture Connect(const std::string &remote_address,
+    channel::ChannelFuture* Connect(const std::string &remote_address,
                           const std::string &local_address);
 };
 

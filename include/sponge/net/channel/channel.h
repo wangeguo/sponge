@@ -105,7 +105,7 @@ class Channel {
     virtual ChannelFuture GetCloseFuture() = 0;
 
     // Returns the current interestOps of this channel.
-    int GetInterestOps() = 0;
+    virtual int GetInterestOps() = 0;
 
     // Returns true if and only the I/O thread will read a message
     // from this channel.

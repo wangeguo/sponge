@@ -53,14 +53,14 @@ class ChannelPipeline {
     virtual ChannelHandlerContext* GetContext(const ChannelHandler &handler) = 0;
     virtual ChannelHandlerContext* GetContext(const std::string &name) = 0;
     virtual ChannelHandlerContext* GetContext(const ChannelHandler *handler_type) = 0;
-    virtual void SendUpstream(const ChannelEvent &e) = 0;
-    virtual void SendDownstream(const ChannelEvent &e) = 0;
-    virtual Channel GetChannel() = 0;
+    virtual void SendUpstream(const ChannelEvent *e) = 0;
+    virtual void SendDownstream(const ChannelEvent *e) = 0;
+    virtual Channel* GetChannel() = 0;
     virtual ChannelSink GetSink() = 0;
     virtual void Attach(const Channel &channel, const ChannelSink &sink) = 0;
     virtual bool IsAttached() = 0;
     virtual std::set<std::string> GetNames() = 0;
-    virtual std::map<std::string, ChannelHandler> ToMap() = 0;
+    virtual std::map<std::string, ChannelHandler*> ToMap() = 0;
 };
 
 } } } // namespace sponge::net::channel
