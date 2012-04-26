@@ -58,7 +58,7 @@ class ServerBootstrap : public Bootstrap {
     void Bind(int port);
     
   private:
-    volatile channel::ChannelHandler* parent_handler_;
+    channel::ChannelHandler* parent_handler_;
 };
 
 } } } // namespace sponge::net::bootstrap

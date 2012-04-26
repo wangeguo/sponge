@@ -24,5 +24,21 @@
 #include "sponge/net/channel/channel-pipeline.h"
 #include "sponge/net/channel/message-event.h"
 #include "sponge/net/channel/channels.h"
+#include "sponge/net/channel/channel-config.h"
+#include "sponge/net/channel/channel-future.h"
+
+// sponge::net::channel::socket
+#include "sponge/net/channel/socket/client-socket-channel-factory.h"
+#include "sponge/net/channel/socket/datagram-channel-config.h"
+#include "sponge/net/channel/socket/datagram-channel-factory.h"
+#include "sponge/net/channel/socket/datagram-channel.h"
+#include "sponge/net/channel/socket/default-datagram-channel-config.h"
+#include "sponge/net/channel/socket/default-server-socket-channel-config.h"
+#include "sponge/net/channel/socket/default-socket-channel-config.h"
+#include "sponge/net/channel/socket/server-socket-channel-config.h"
+#include "sponge/net/channel/socket/server-socket-channel-factory.h"
+#include "sponge/net/channel/socket/server-socket-channel.h"
+#include "sponge/net/channel/socket/socket-channel-config.h"
+#include "sponge/net/channel/socket/socket-channel.h"
 
 #endif // SPONGE_SPONGE_H_

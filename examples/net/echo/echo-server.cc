@@ -18,7 +18,7 @@ class EchoServerHandler : public SimpleChannelUpstreamHandler {
 class EchoServerPipelineFactory : public ChannelPipelineFactory {
   public:
     ChannelPipeline* GetPipeline() {
-        return Channels.pipeline(new EchoServerHandler());
+        return Channels::Pipeline(new EchoServerHandler());
     }
 };
 
