@@ -23,7 +23,7 @@ class ServerSocketChannelConfig : public ChannelConfig {
     // local address.
     virtual void SetBacklog(int backlog) = 0;
     virtual bool IsReuseAddress() = 0;
-    virtual void SetReuseAddress(booll reuse_address) = 0;
+    virtual void SetReuseAddress(bool reuse_address) = 0;
     virtual int  GetReceiveBufferSize() = 0;
     virtual void SetReceiveBufferSize(int receive_buffer_size) = 0;
     virtual void SetPerformancePreference(

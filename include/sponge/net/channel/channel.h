@@ -13,6 +13,7 @@ namespace net {
 namespace channel {
 
 // Forward declarations.
+class ChannelConfig;
 class ChannelFactory;
 class ChannelFuture;
 
@@ -82,7 +83,7 @@ class Channel {
 
     // Connectes this channel to the specified remote address
     // asynchronously.
-    virtual ChannelFutue Connect(const std::string &remote_address);
+    virtual ChannelFuture Connect(const std::string &remote_address);
 
     // Disconnects this channel from the current remote address
     // asynchronously.

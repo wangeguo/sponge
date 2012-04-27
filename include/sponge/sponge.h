@@ -41,4 +41,8 @@
 #include "sponge/net/channel/socket/socket-channel-config.h"
 #include "sponge/net/channel/socket/socket-channel.h"
 
+// sponge::storage
+#include "sponge/storage/storage.h"
+#include "sponge/storage/storage-area.h"
+
 #endif // SPONGE_SPONGE_H_
