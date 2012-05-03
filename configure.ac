@@ -8,11 +8,30 @@ AC_CONFIG_SRCDIR([src/indexd/indexd.cc])
 AC_CONFIG_HEADER([include/config.h])
 AM_INIT_AUTOMAKE([1.10 -Wall no-define foreign])
 
+AC_LANG(C++)
+
 # Checks for programs.
 AC_PROG_CXX
 AC_PROG_INSTALL
 
 # Checks for libraries.
+# Get LevelDB library and include locations
+#AC_LANG_PUSH(C++)
+
+AC_ARG_WITH([leveldb],
+  [AS_HELP_STRING([--with-leveldb@<:@=PATH@:>@],
+    [Directory where leveldb was built. Example: --with-leveldb=/opt/leveldb])],
+  [
+    #CFLAGS="$CFLAGS -I${withval}/include"
+    CPPFLAGS="$CPPFLAGS -I${withval}/include"
+    #CXXFLAGS="$CXXFLAGS -I${withval}/include"
+    AC_SUBST(CXXFLAGS)
+    LDFLAGS="$LDFLAGS -lleveldb -L${withval}"
+    AC_SUBST(LDFLAGS)
+  ])
+AC_CHECK_HEADER([leveldb/db.h],,AC_MSG_ERROR([cannot find headers for leveldb]))
+
+#AC_LANG_POP()
 
 # Checks for header files.
 
