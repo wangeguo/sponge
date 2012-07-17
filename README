@@ -1,1 +1,7 @@
 Sponge: Distributed storage system
+
+Sponge 是一个 Google File System 系的分布式文件存储系统，使用 LevelDB
+作为底层存储引擎，保证高性能的随机读写。借鉴 Zookeeper 的主动数据变化通
+知，将Meta 元数据根据算法告之前端应用代理层，以减少元数据服务器的压力。
+网络层代码改写自 Netty，使架构更易于扩展，支持更灵活的通信协议。应用代
+理层使用FUSE 向上提供带缓存的，透明的数据存取操作。
