@@ -7,7 +7,6 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
 
 // Forward declarations
 class Channel;
@@ -89,6 +88,6 @@ class ChannelFuture {
     virtual bool AwaitUninterruptibly(long timeoutMillis) = 0;
 };
 
-} } } // namespace sponge::net::channel
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_CHANNEL_CHANNEL_FUTURE_H_

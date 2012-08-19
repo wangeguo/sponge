@@ -12,15 +12,11 @@
 namespace sponge {
 namespace net {
 
-namespace channel {
 // Forward declarations.
 class ChannelFactory;
 class ChannelPipeline;
 class ChannelPipelineFactory;
 class ChannelHandler;
-} // namespace channel
-
-namespace bootstrap {
 
 // A helper class which initializes a Channel. This class provides the
 // common data structure for its subclasses which actually initialize
@@ -33,64 +29,68 @@ class Bootstrap /* : ExternalResourceReleasable */ {
     virtual ~Bootstrap();
 
     // Returns the ChannelFactory that will be used to perform an I/O operation.
-    channel::ChannelFactory* GetFactory();
+    ChannelFactory* GetFactory();
 
     // Sets the ChannelFactory that will be used to perform an I/O
     // operation. This method can be called only once and can't be
     // called at all if the factory was specified in the constructor.
-    void SetFactory(const channel::ChannelFactory *factory);
+    void SetFactory(const ChannelFactory *factory);
 
     // Returns the default ChannelPipeline which is cloned when a new
     // Channel is created.
-    const channel::ChannelPipeline* GetPipeline();
+    const ChannelPipeline* GetPipeline();
 
     // Sets the default ChannelPipeline which is cloned when a new
     // Channel is created.
-    void SetPipeline(const channel::ChannelPipeline *pipeline);
+    void SetPipeline(const ChannelPipeline *pipeline);
 
     // Dependency injection friendly convenience method for
     // getPipeline() which returns the default pipeline of this
     // bootstrap as an ordered map.
-    std::map<std::string, channel::ChannelHandler*> GetPipelineAsMap();
+    std::map<std::string, ChannelHandler*> GetPipelineAsMap();
 
-    void SetPipelineAsMap(const std::map<std::string, channel::ChannelHandler*> &pipeline_map);
-    inline channel::ChannelPipelineFactory* GetPipelineFactory() {
+    void SetPipelineAsMap(const std::map<std::string, ChannelHandler*> &pipeline_map);
+    inline ChannelPipelineFactory* GetPipelineFactory() {
         return pipeline_factory_; }
 
     inline void SetPipelineFactory(
-        const channel::ChannelPipelineFactory *pipeline_factory) {
+        const ChannelPipelineFactory *pipeline_factory) {
         pipeline_ = NULL;
         pipeline_factory_ = pipeline_factory;
     }
-    inline std::map<std::string, void* > GetOptions() { return options_; }
-    inline void SetOptions(std::map<std::string, void* > options) {
-        options_ = options;
-    }
-    inline void* GetOption(std::string key) { return options_.find(key)->second; }
-    inline void SetOption(std::string key, void* value) {
-        if (value == NULL)
+	/*
+	inline std::map<std::string, std::string> GetOptions() { return options_; }
+    inline void SetOptions(std::map<std::string, std::string> options) {
+		options_ = options;
+	}
+	*/
+    inline std::string GetOption(const std::string &key) { return options_.find(key)->second; }
+	/*
+    inline void SetOption(const std::string &key, const std::string &value) {
+        if (value.empty())
             options_.erase(key);
         else
-            options_.insert(std::pair<std::string, void*>(key, value));
+            options_.insert(std::pair<std::string, std::string>(key, value));
     }
+	*/
 
   protected:
     // Creates a new instance with no ChannelFactory set.
-    Bootstrap() : pipeline_(channel::Channels::Pipeline()),
-                  pipeline_factory_(channel::Channels::PipelineFactory(pipeline_)) {}
+    Bootstrap() : pipeline_(Channels::Pipeline()),
+                  pipeline_factory_(Channels::PipelineFactory(pipeline_)) {}
 
     // Creates a new instance with the specified initial ChannelFactory.
-    inline Bootstrap(const channel::ChannelFactory *channel_factory) {
+    inline Bootstrap(const ChannelFactory *channel_factory) {
         SetFactory(channel_factory);
     }
 
   private:
-    volatile channel::ChannelFactory* factory_;
-    volatile channel::ChannelPipeline* pipeline_;
-    volatile channel::ChannelPipelineFactory* pipeline_factory_;
-    volatile std::map< std::string, void* > options_;
+    volatile ChannelFactory* factory_;
+    volatile ChannelPipeline* pipeline_;
+    volatile ChannelPipelineFactory* pipeline_factory_;
+    volatile std::map< std::string, std::string> options_;
 };
 
-} } } // namespace sponge::net::bootstrap
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_BOOTSTRAP_BOOTSTRAP_H_

@@ -7,9 +7,6 @@
 
 namespace sponge {
 namespace net {
-namespace handler {
-namespace codec {
-namespace protobuf {
 
 // An encoder that prepends the Google Protocol Buffers Base 128
 // Varints integer length field. For example:
@@ -27,6 +24,6 @@ class ProtobufVarint32LengthFieldPrepender : public OneToOneEncoder {
                  const Channel *channel, void *msg);
 };
 
-} } } } } // namespace sponge::net::handler::codec::protobuf
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_HANDLER_CODEC_PROTOBUF_PROTOBUF_VARINT32_LENGTH_FIELD_PREENDER_H_

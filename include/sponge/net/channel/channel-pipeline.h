@@ -11,7 +11,6 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
 
 // Forward declarations.
 class Channel;
@@ -63,6 +62,6 @@ class ChannelPipeline {
     virtual std::map<std::string, ChannelHandler*> ToMap() = 0;
 };
 
-} } } // namespace sponge::net::channel
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_CHANNEL_CHANNEL_PIPELINE_H_

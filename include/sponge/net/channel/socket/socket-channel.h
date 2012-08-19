@@ -9,13 +9,9 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
 
 // Forward decleations.
 class Channel;
-
-namespace socket {
-
 class SocketChannelConfig;
 
 class SocketChannel : public Channel {
@@ -25,6 +21,6 @@ class SocketChannel : public Channel {
     virtual std::string GetRemoteAddress() = 0;
 };
 
-} } } } // namespace sponge::net::channel::socket
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_CHANNEL_SOCKET_SOCKET_CHANNEL_H_

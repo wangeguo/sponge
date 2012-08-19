@@ -9,7 +9,6 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
 
 // Forward declarations.
 class ChannelPipeline;
@@ -21,6 +20,6 @@ class ServerChannelFactory : public ChannelFactory {
     virtual ServerChannel* NewChannel(const ChannelPipeline *pipeline) = 0;
 };
 
-} } } // namespace sponge::net::channel
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_CHANNEL_SERVER_CHANNEL_FACTORY_H_

@@ -7,9 +7,6 @@
 
 namespace sponge {
 namespace net {
-namespace handler {
-namespace codec {
-namespace oneone {
 
 // Transforms a received message into another message. Please note
 // that this decoder must be used with a propr FrameDecoder such as
@@ -33,6 +30,6 @@ class OneToOneDecoder : public ChannelUpstreamHandler {
                          const Channel *channel, void* msg) throw;
 };
 
-} } } } } // namespace sponge::net::handler::codec::oneone
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_HANDLER_CODEC_ONEONE_ONE_TO_ONE_DECODER_H_

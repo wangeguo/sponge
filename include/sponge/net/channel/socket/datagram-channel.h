@@ -9,8 +9,6 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
-namespace socket {
 
 // Forward declaratioins
 class DatagramChannelConfig;
@@ -30,6 +28,6 @@ class DatagramChannel : public Channel {
     virtual void LeaveGroup(const std::string &multicast_address, void* network_interface) = 0;
 };
 
-} } } } // namespace sponge::net::channel::socket
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_CHANNEL_SOCKET_DATAGRAM_CHANNEL_H_

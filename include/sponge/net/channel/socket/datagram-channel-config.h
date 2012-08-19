@@ -10,8 +10,6 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
-namespace socket {
 
 // A ChannelConfig for a DatagramChannel
 class DatagramChannelConfig : public ChannelConfig {
@@ -50,6 +48,6 @@ class DatagramChannelConfig : public ChannelConfig {
     //    ReceiveBufferSizePredictorFactory predictorFactory) = 0;
 };
 
-} } } } // namespace sponge::net::channel::socket
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_CHANNEL_SOCKET_DATAGRAM_CHANNEL_CONFIG_H_

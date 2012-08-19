@@ -4,8 +4,7 @@
 
 #include "sponge/sponge.h"
 
-using namespace sponge::net::bootstrap;
-using namespace sponge::net::channel;
+using namespace sponge::net;
 
 class EchoServerHandler : public SimpleChannelUpstreamHandler {
   public:

@@ -9,7 +9,6 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
 
 // Forward declaration
 class ChannelHandlerContext;
@@ -24,6 +23,6 @@ class ChannelUpstreamHandler : public ChannelHandler {
                                 const ChannelEvent *e);
 };
 
-} } } // namespace sponge::net::channel
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_CHANNEL_CHANNEL_UPSTREAM_HANDLER_H_

@@ -7,8 +7,6 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
-namespace socket {
 
 // The default DatagramChannelConfig implementation.
 class DefaultDatagramChannelConfig
@@ -56,6 +54,6 @@ class DefaultDatagramChannelConfig
 }
 
 
-} } } } // namespace sponge::net::channel::socket
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_CHANNEL_SOCKET_DEFAULT_DATAGRAM_CHANNEL_CONFIG_H_

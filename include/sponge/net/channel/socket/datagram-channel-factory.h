@@ -9,8 +9,6 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
-namespace socket {
 
 // A ChannelFactory which creates a DatagramChannel
 class DatagramChannelFactory : public ChannelFactory {
@@ -18,6 +16,6 @@ class DatagramChannelFactory : public ChannelFactory {
     DatagramChannel* NewChannel(ChannelPipeline *pipeline) = 0;
 };
 
-} } } } // namespace sponge::net::channel::socket
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_CHANNEL_SOCKET_DATAGRAM_CHANNEL_FACTORY_H_

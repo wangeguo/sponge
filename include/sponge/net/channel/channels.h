@@ -8,7 +8,6 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
 
 // Fowrard declarations
 class ChannelPipeline;
@@ -28,6 +27,6 @@ class Channels {
     // @TODO Channels other methods
 };
 
-} } } // namespace sponge::net::channel
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_CHANNEL_CHANNELS_H_

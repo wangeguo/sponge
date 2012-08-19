@@ -7,9 +7,6 @@
 
 namespace sponge {
 namespace net {
-namespace handler {
-namespace codec {
-namespace protobuf {
 
 // Decodes a received ChannelBuffer into a Google Protocol Buffers
 // Message and MessageLite. Please note that this decoder must be used
@@ -33,6 +30,6 @@ class ProtobufDecoder : public OneToOneDecoder {
     const ExtensionRegistry kEntensionRegistry_;
 };
 
-} } } } } // namespace sponge::net::handler::codec::protobuf
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_HANDLER_CODEC_PROTOBUF_PROTOBUF_DECODER_H_

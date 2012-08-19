@@ -7,9 +7,6 @@
 
 namespace sponge {
 namespace net {
-namespace handler {
-namespace codec {
-namespace protobuf {
 
 // A decoder that splits the received ChannelBuffers dynamically by
 // the value of the Google Protocol Buffers Base 128 Varints integer
@@ -28,6 +25,6 @@ class ProtobufVarint32FrameDecoder : public FrameDecoder {
                  const Channel *channel, const ChannelBuffer *buffer);
 };
 
-} } } } } // namespace sponge::net::handler::codec::protobuf
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_HANDLER_CODEC_PROTOBUF_PROTOBUF_VARINT32_FRAME_DECODER_H_

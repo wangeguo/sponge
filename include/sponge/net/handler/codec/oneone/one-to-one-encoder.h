@@ -7,9 +7,6 @@
 
 namespace sponge {
 namespace net {
-namespace handler {
-namespace codec {
-namespace oneone {
 
 // Transforms a write request into another write request.
 class OneToOneEncoder : public ChannelDownstreamHandler {
@@ -30,6 +27,6 @@ class OneToOneEncoder : public ChannelDownstreamHandler {
                          const Channel *channel, void* msg) throw;
 };
 
-} } } } } // namespace sponge::net::handler::codec::oneone
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_HANDLER_CODEC_ONEONE_ONE_TO_ONE_ENCODER_H_

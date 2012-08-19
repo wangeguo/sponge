@@ -10,7 +10,10 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
+
+// Forward declarations.
+class ChannelBufferFactory;
+class ChannelPipelineFactory;
 
 // A set of configuration properties of a Channel
 class ChannelConfig {
@@ -43,6 +46,6 @@ class ChannelConfig {
     virtual int SetConnectTimeoutMillis(int connect_timeout_millis) = 0;
 };
 
-} } } // namespace sponge::net::channel
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_CHANNEL_CHANNEL_CONFIG_H_

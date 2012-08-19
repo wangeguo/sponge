@@ -7,8 +7,6 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
-namespace socket {
 
 // The default SocketChannelConfig implementation
 class DefaultSocketChannelConfig
@@ -42,6 +40,6 @@ class DefaultSocketChannelConfig
     const Socket kSocket_;
 };
 
-} } } } // namespace sponge::net::channel::socket
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_CHANNEL_SOCKET_DEFAULT_SOCKET_CHANNEL_CONFIG_H_

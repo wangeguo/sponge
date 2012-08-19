@@ -9,8 +9,6 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
-namespace socket {
 
 // A ChannelConfig for a SocketChannel
 class SocketChannelConfig : public ChannelConfig {
@@ -33,6 +31,6 @@ class SocketChannelConfig : public ChannelConfig {
         int connection_time, int latency, int bandwidth) = 0;
 };
 
-} } } } // namespace sponge::net::channel::socket;
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_CHANNEL_SOCKET_SERVER_SOCKET_CHANNEL_CONFIG_H_

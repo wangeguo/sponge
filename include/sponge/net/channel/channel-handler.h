@@ -7,13 +7,12 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
 
 // Handles or intercepts a ChannelEvent, and sends a ChannelEvent to
 // the next handler in a ChannelPipeline.
 class ChannelHandler {
 };
 
-} } } // namespace sponge::net::channel
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_CHANNEL_CHANNEL_HANDLER_H_

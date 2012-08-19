@@ -7,7 +7,6 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
 
 // Forward declarations.
 class ChannelEvent;
@@ -28,6 +27,6 @@ class MessageEvent : ChannelEvent {
     virtual std::string GetRemoteAddress() = 0;
 };
 
-} } } // namespace sponge::net::channel
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_CHANNEL_MESSAGE_EVENT_H_

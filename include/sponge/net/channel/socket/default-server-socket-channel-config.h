@@ -10,8 +10,6 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
-namespace socket {
 
 // The default ServerSocketChannelConfig implementation.
 class DefaultServerSocketChannelConfig
@@ -40,6 +38,6 @@ class DefaultServerSocketChannelConfig
     volatile int backlog_;
 };
     
-} } } } // namespace sponge::net::channel::socket
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_CHANNEL_SOCKET_DEFAULT_SERVER_SOCKET_CHANNEL_CONFIG_H_

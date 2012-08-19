@@ -10,7 +10,6 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
 
 // Forward declarations.
 class ChannelConfig;
@@ -122,6 +121,6 @@ class Channel {
     virtual ChannelFuture SetReadable(bool readable) = 0;
 };
 
-} } } // namespace sponge::net::channel
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_CHANNEL_CHANNEL_H_

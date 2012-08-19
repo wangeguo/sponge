@@ -9,8 +9,6 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
-namespace socket {
 
 // Forward declarations
 class SocketChannel;
@@ -22,6 +20,6 @@ class ClientSocketChannelFactory : public ChannelFactory {
     virtual SocketChannel* NewChannel(const ChannelPipeline *pipeline);
 };
 
-} } } } // namespace sponge::net::channel::socket
+} } // namespace sponge::net
 
 #endif // SPONGE_NET_CHANNEL_SOCKET_CLIENT_SOCKET_CHANNEL_FACTORY_H_
