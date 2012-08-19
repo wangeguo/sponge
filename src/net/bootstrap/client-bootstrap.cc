@@ -7,7 +7,6 @@
 
 namespace sponge {
 namespace net {
-namespace bootstrap {
 
 ChannelFuture ClientBootstrap::Connect(const std::string &remote_address,
                                        const std::string &local_address) {
@@ -38,4 +37,4 @@ ChannelFuture ClientBootstrap::Connect(const std::string &remote_address,
     return ch->Connect(remote_address);
 }
 
-} } } // namespace sponge::net::bootstrap
+} } // namespace sponge::net

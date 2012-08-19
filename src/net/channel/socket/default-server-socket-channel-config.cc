@@ -6,8 +6,6 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
-namespace socket {
 
 bool DefaultServerSocketChannelConfig::SetOption(const std::string &key, void* value) {
     if (DefaultServerChannelConfig::SetOption(key, value)) {
@@ -58,4 +56,4 @@ void DefaultServerSocketChannelConfig::SetReceiveBufferSize(int receive_buffer_s
     }
 }
 
-} } } } // namespace sponge::net::channel::socket
+} } // namespace sponge::net

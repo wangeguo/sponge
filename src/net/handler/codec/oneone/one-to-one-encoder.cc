@@ -6,9 +6,6 @@
 
 namespace sponge {
 namespace net {
-namespace handler {
-namespace codec {
-namespace oneone {
 
 void OneToOneEncoder::HandleDownstream(
     const ChannelHandlerContext *ctx, const ChannelEvent *evt) throw {
@@ -26,4 +23,4 @@ void OneToOneEncoder::HandleDownstream(
         Write(ctx, e.GetFuture(), encoded_message, e.GetRemoteAddress());
 }
 
-} } } } } // namespace sponge::net::handler::codec::oneone
+} } // namespace sponge::net

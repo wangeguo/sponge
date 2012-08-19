@@ -6,8 +6,6 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
-namespace socket {
 
 bool DefaultSocketChannelConfig::SetOption(const std::string &key, void* value) {
     if (DefaultChannelConfig::SetOption(key, value)) {
@@ -150,4 +148,4 @@ void DefaultSocketChannelConfig::SetTrafficClass(int traffic_class) {
     }
 }
 
-} } } } // namespace sponge::net::channel::socket
+} } // namespace sponge::net

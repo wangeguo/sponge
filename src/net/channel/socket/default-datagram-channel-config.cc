@@ -6,8 +6,6 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
-namespace socket {
 
 // Init kDefaultPredictorFactory_
 DefaultDatagramChannelConfig::kDefaultPredictorFactory_(
@@ -260,4 +258,4 @@ void DefaultDatagramChannelConfig::SetReceiveBufferSizePredictorFactory(
 }
 
 
-} } } } // namespace sponge::net::channel::socket
+} } // namespace sponge::net

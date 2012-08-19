@@ -6,7 +6,6 @@
 
 namespace sponge {
 namespace net {
-namespace bootstrap {
 
 Bootstrap::~Bootstrap() {
 }
@@ -43,4 +42,4 @@ void Bootstrap::SetPipelineAsMap(std::map<std::string, ChannelHandler> &pipeline
     SetPipeline(pipeline);
 }
 
-} } } // namespace sponge::net::bootstrap
+} } // namespace sponge::net

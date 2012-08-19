@@ -6,10 +6,9 @@
 
 namespace sponge {
 namespace net {
-namespace bootstrap {
 
 Channel ServerBootstrap::Bind(const std::string &local_address) {
     // @TODO: full
 }
 
-} } } // namespace sponge::net::bootstrap
+} } // namespace sponge::net

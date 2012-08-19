@@ -6,11 +6,10 @@
 
 namespace sponge {
 namespace net {
-namespace channel {
 
 void SimpleChannelUpstreamHandler::HandleUpstream(
     const ChannelHandlerContext &ctx, const ChannelEvent &e) {
     // @TODO: fill
 }
 
-} } } // namespace sponge::net::channel
+} } // namespace sponge::net
